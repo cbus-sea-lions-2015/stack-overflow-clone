@@ -1,53 +1,36 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Stack Overflow</h1>
 
-  <table>
+  <table class="table table-condensed">
+  <thead>
     <tr>
-      <th>File Description</th>
-      <th>File Location</th>
+    <th><a href="/users/new">Sign Up</a></th>
+    <th><a href="/questions/new">Add Question</a></th>
+    <th><a href="/answers/new">Add Answer</a></th>
+    <th><a href="/votes/new">Add Vote</a></th>
     </tr>
     <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
+      <td><a href="/questions">Edit a Question</a></td>
     </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
+  </thead>
   </table>
-<h2>Get Form</h2>
-  <form action="/sandbox" method="get">
-    <input type="text" name="message">
-    <input type="submit">
-
-    <input type="radio" name="message">
-    <input type="submit">
-
-    <input type="checkbox" name="message">
-    <input type="submit">
-
-    <input type="text" name="post[title]">
-    <textarea cols="40" rows="5" name="options">
-      write something amazing!
-    </textarea>
-
-    <select name="mydropdown">
-      <option value="Milk">Fresh Milk</option>
-      <option value="Cheese">Old Cheese</option>
-      <option value="Bread">Hot Bread</option>
-    </select>
-    <input type="submit">
-    
-  </form>
-<h2>Post Form</h2>
-  <form action="/sandbox" method="post">
-    <input type="text" name="message">
-    <input type="submit">
-  </form>
+  <table class="table">
+    <thead>
+    <tr> 
+      <th>Question</th>
+      <th>Answer Count</th>
+      <th>Vote Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @questions.each do |question| %>
+    <tr>
+      <td> <%= question.question_title %> </td>
+      <td><%= @answers.count %> </td>
+      <td><%= @votes.count %> </td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
 
 </div>
