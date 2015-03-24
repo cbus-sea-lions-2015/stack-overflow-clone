@@ -1,0 +1,20 @@
+
+<% @questions.each do |question| %>
+
+<h1>Question: <%= question.question_title %> </h1>
+
+<form method="POST" action="/questions/<%= question.id %>">
+<input type="hidden" name="_method" value="delete">
+<input type="submit" value="DELETE!">
+</form>
+
+<form method="POST" action="/questions/<%= question.id %>">
+  Question Title: <br>
+  <input type="text" class="form-control" name="question[question_title]" value=" <%= question.question_title %>" "placeholder="change title..." /> <br>
+  Question Body: <br>
+  <input type="text" class="form-control" name="question[question_text]" value=" <%= question.question_text %>" placeholder="change your question..." /> <br>
+<input type="hidden" name="_method" value="put">
+<input type="submit" value="Edit!">
+</form>
+
+<% end %>

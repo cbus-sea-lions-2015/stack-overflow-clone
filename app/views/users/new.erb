@@ -1,0 +1,7 @@
+<form class="form-group" method="POST" action="/users">
+  User Name: <br>
+  <input type="text" name="user[user_name]" value= <%= @user.user_name %> /> <br>
+  Password: <br>
+  <input type="password" name="user[password_hash]" value= <%= @user.password_hash %> />
+  <input type="submit" value="Sign Up"  />
+</form>
